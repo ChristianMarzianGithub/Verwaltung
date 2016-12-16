@@ -1,3 +1,3 @@
 # Verwaltung
 
-![My image](username.github.com/Verwaltung/abc.jpg)
+![My image](username.github.com/Verwaltung/abc.png)
