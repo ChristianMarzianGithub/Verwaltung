@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
 
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
@@ -27,7 +28,7 @@ public class FensterMain {
 		
 	}
 	
-	public static void createAndShowGUI(){
+	public static void createAndShowGUI() throws SQLException, ClassNotFoundException{
 		// JFrame erzeugen
 		JFrame frame = new JFrame("Verwaltung");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -83,12 +84,10 @@ public class FensterMain {
 		frame.setPreferredSize(new Dimension(1000,500));
 				
 		
-		for(int i = 0; i< 100 ; i++){
-			listModel.add(i,"<html>abc" + i + "<br>lines</html>");
-		}
 		
 		
-		JList jlist = new JList(listModel);
+
+		JList jlist = new JList(CalcVerwaltung.getData());
 		jlist.setFixedCellHeight(50);
 		jlist.addMouseListener(new MouseAdapter(){
 	          @Override
@@ -105,12 +104,12 @@ public class FensterMain {
 	    JScrollPane scrollPane1 = new JScrollPane(jlist);
 	    scrollPane1.setPreferredSize(new Dimension(200,500));
 		
-		// ContentPane haelt standardmae√üig ein BorderLayout
+		// ContentPane haelt standardmaeﬂig ein BorderLayout
 		frame.getContentPane().add(menuBar, BorderLayout.PAGE_START);
 		frame.getContentPane().add(centerPanel, BorderLayout.CENTER);
 		frame.getContentPane().add(scrollPane1, BorderLayout.LINE_START);
 		
-		// Framegroe√üe anpassen
+		// Framegroeﬂe anpassen
 		// Frame sichtbar machen
 		
 		frame.pack();
