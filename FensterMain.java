@@ -43,7 +43,7 @@ public class FensterMain {
 		
 		Film mainFilm = new Film();
 		mainFilm.setTitle("Pulp Fiction");
-		EintragPanel eintrag = new EintragPanel(mainFilm);
+		final EintragPanel eintrag = new EintragPanel(mainFilm);
 		
 		
 		DefaultListModel listModel;
@@ -83,8 +83,8 @@ public class FensterMain {
 		topPanel.setPreferredSize(new Dimension(1000,50));
 		topPanel.add(menuBar);
 		
-		ImageIcon img = new ImageIcon("C:/Users/Chris/Desktop/verwaltungIcon.jpg");
-		frame.setIconImage(img.getImage());
+//		ImageIcon img = new ImageIcon("C:/Users/Chris/Documents/MovieDB.db");
+//		frame.setIconImage(img.getImage());
 		
 		frame.setPreferredSize(new Dimension(1000,500));
 				
@@ -102,6 +102,19 @@ public class FensterMain {
 	              System.out.println("Index Selected: " + index);
 	              String s = (String) jlist.getSelectedValue();
 	              System.out.println("Value Selected: " + s.toString());
+	              
+	              
+	              
+	              
+	              
+	              
+	              
+	              
+	              eintrag.setTitle(  CalcVerwaltung.getEintragData(jlist.getSelectedIndex())   );
+	              eintrag.init();
+	             
+	              
+	              
 	          }
 	    });
 		
@@ -109,12 +122,12 @@ public class FensterMain {
 	    JScrollPane scrollPane1 = new JScrollPane(jlist);
 	    scrollPane1.setPreferredSize(new Dimension(200,500));
 		
-		// ContentPane haelt standardmae√üig ein BorderLayout
+		// ContentPane haelt standardmaeﬂig ein BorderLayout
 		frame.getContentPane().add(menuBar, BorderLayout.PAGE_START);
 		frame.getContentPane().add(eintrag, BorderLayout.CENTER);
 		frame.getContentPane().add(scrollPane1, BorderLayout.LINE_START);
 		
-		// Framegroe√üe anpassen
+		// Framegroeﬂe anpassen
 		// Frame sichtbar machen
 		
 		frame.pack();
