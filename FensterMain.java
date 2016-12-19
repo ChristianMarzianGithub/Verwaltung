@@ -41,6 +41,11 @@ public class FensterMain {
 		JMenuItem menuItem1;
 		JMenuItem menuItem2;
 		
+		Film mainFilm = new Film();
+		mainFilm.setTitle("Pulp Fiction");
+		EintragPanel eintrag = new EintragPanel(mainFilm);
+		
+		
 		DefaultListModel listModel;
 		listModel = new DefaultListModel();
 	
@@ -104,12 +109,12 @@ public class FensterMain {
 	    JScrollPane scrollPane1 = new JScrollPane(jlist);
 	    scrollPane1.setPreferredSize(new Dimension(200,500));
 		
-		// ContentPane haelt standardmaeﬂig ein BorderLayout
+		// ContentPane haelt standardmae√üig ein BorderLayout
 		frame.getContentPane().add(menuBar, BorderLayout.PAGE_START);
-		frame.getContentPane().add(centerPanel, BorderLayout.CENTER);
+		frame.getContentPane().add(eintrag, BorderLayout.CENTER);
 		frame.getContentPane().add(scrollPane1, BorderLayout.LINE_START);
 		
-		// Framegroeﬂe anpassen
+		// Framegroe√üe anpassen
 		// Frame sichtbar machen
 		
 		frame.pack();
