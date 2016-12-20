@@ -70,9 +70,12 @@ public class CalcVerwaltung {
 	}
 	
 	
-	public static String getEintragData(int id){
+	public static String[] getEintragData(int id){
 		
 		String rueck = "";
+		
+		String[] rueckArray = new String[5];
+		
 		
 		try {
 			
@@ -80,9 +83,11 @@ public class CalcVerwaltung {
 			Statement statement = conn.createStatement();
 			rs = statement.executeQuery("Select * from film where id =" + Integer.toString(id));
 
-			
-			rueck = rs.getString("Titel"); 
-			
+			rueckArray[0] = rs.getString("Titel");
+			rueckArray[1] = rs.getString("StoryLine");
+			rueckArray[2] =  rs.getString("ReleaseDate"); 
+			rueckArray[3] =  rs.getString("RunTime");
+			rueckArray[4] =  rs.getString("Country");
 			
 			
 			
@@ -92,7 +97,7 @@ public class CalcVerwaltung {
 		}
 		
 		
-		return rueck;
+		return rueckArray;
 	}
 	
 	

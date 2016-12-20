@@ -2,12 +2,14 @@ package verwaltung;
 
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.util.Date;
 
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextPane;
 
 @SuppressWarnings("serial")
 public class EintragPanel extends JPanel {
@@ -15,12 +17,16 @@ public class EintragPanel extends JPanel {
 	
 	private String title;
 	private String storyLine;
-	private Date releaseDate = new Date();
+	private String releaseDate;
 	private int runTimeMin;
 	private String country;
 	private JLabel lblTitle = new JLabel();
-	private JLabel lblRD = new JLabel();
-	
+	private JLabel lblReleaseDate = new JLabel();
+	private JTextPane tpStoryLine = new JTextPane();
+	private JLabel lblRunTimeMin = new JLabel();
+	private JLabel lblCountry = new JLabel();
+	private JLabel lblHandlung = new JLabel();
+	private JPanel panelDetail = new JPanel();
 	
 	public EintragPanel(Film movie) {
 		// TODO Auto-generated constructor stub
@@ -38,30 +44,53 @@ public class EintragPanel extends JPanel {
 		this.init();
 
 		
-		lblTitle.setOpaque(true);
-		lblTitle.setBackground(Color.YELLOW);
+		
+		this.setLayout(null);
+		panelDetail.setLocation(0,0);
+		panelDetail.setSize(500, 500);
+
+		panelDetail.setLayout(null);
 		
 		
-		lblRD.setOpaque(true);
-		lblRD.setBackground(Color.YELLOW);
-//		this.setLayout(null);
-//		lblTitle.setLocation(10, 100);
-//		lblTitle.setSize(200,25);
+		lblTitle.setLocation(0, 0);
+		lblTitle.setSize(100,50);
 		
+		lblReleaseDate.setLocation(0, 25);
+		lblReleaseDate.setSize(250,50);
 		
+		lblRunTimeMin.setLocation(0, 50);
+		lblRunTimeMin.setSize(250,50);
 		
-		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		lblCountry.setLocation(0, 75);
+		lblCountry.setSize(250,50);
 		
-		this.add(lblTitle );
-		this.add(lblRD);
+		lblHandlung.setLocation(0, 100);
+		lblHandlung.setSize(250,50);
 		
+		tpStoryLine.setLocation(0, 135);
+		tpStoryLine.setSize(500,150);
+		tpStoryLine.setOpaque(false);
+		
+
+		panelDetail.add(lblTitle );	
+		panelDetail.add(lblReleaseDate);
+		panelDetail.add(lblRunTimeMin);
+		panelDetail.add(lblCountry);
+		panelDetail.add(lblHandlung);
+		panelDetail.add(tpStoryLine);
+		
+		this.add(panelDetail);
 		
 		this.setVisible(true);
 	}
 
 	public void init(){		
 		lblTitle.setText("Titel: " + title );	
-		lblRD.setText("ReleaseDate: " + releaseDate);
+		lblReleaseDate.setText("ReleaseDate: " + releaseDate);
+		lblRunTimeMin.setText("Laufzeit: " + runTimeMin);
+		lblCountry.setText("Land: " + country);
+		lblHandlung.setText("Handlung:");
+		tpStoryLine.setText(storyLine);
 	}
 
 	public String getTitle() {
@@ -69,8 +98,7 @@ public class EintragPanel extends JPanel {
 	}
 
 	public void setTitle(String title) {
-		this.title = title;
-		
+		this.title = title;		
 	}
 
 	public String getStoryLine() {
@@ -81,11 +109,11 @@ public class EintragPanel extends JPanel {
 		this.storyLine = storyLine;
 	}
 
-	public Date getReleaseDate() {
+	public String getReleaseDate() {
 		return releaseDate;
 	}
 
-	public void setReleaseDate(Date releaseDate) {
+	public void setReleaseDate(String releaseDate) {
 		this.releaseDate = releaseDate;
 	}
 

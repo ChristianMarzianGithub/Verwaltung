@@ -103,14 +103,16 @@ public class FensterMain {
 	              String s = (String) jlist.getSelectedValue();
 	              System.out.println("Value Selected: " + s.toString());
 	              
+	              String arr[] = new String[4];
+	              arr =  CalcVerwaltung.getEintragData(jlist.getSelectedIndex());
+	              eintrag.setTitle(arr[0]);
+	              eintrag.setStoryLine(arr[1]);
+	              eintrag.setReleaseDate(arr[2]);
+	              eintrag.setRunTimeMin(Integer.parseInt(arr[3]));
+	              eintrag.setCountry(arr[4]);
 	              
 	              
 	              
-	              
-	              
-	              
-	              
-	              eintrag.setTitle(  CalcVerwaltung.getEintragData(jlist.getSelectedIndex())   );
 	              eintrag.init();
 	             
 	              

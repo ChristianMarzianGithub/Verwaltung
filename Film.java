@@ -6,7 +6,7 @@ public class Film {
 
 	private String title;
 	private String storyLine;
-	private Date releaseDate = new Date();
+	private String releaseDate;
 	private int runTimeMin;
 	private String country;
 	
@@ -31,11 +31,11 @@ public class Film {
 		this.storyLine = storyLine;
 	}
 
-	public Date getReleaseDate() {
+	public String getReleaseDate() {
 		return releaseDate;
 	}
 
-	public void setReleaseDate(Date releaseDate) {
+	public void setReleaseDate(String releaseDate) {
 		this.releaseDate = releaseDate;
 	}
 
